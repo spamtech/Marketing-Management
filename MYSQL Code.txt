@@ -1,0 +1,25 @@
+use jan_final_project_2025;
+show tables;
+select * from cust_details;
+select * from product_table;
+
+CREATE TABLE audit_table (
+    bill_id INT AUTO_INCREMENT PRIMARY KEY,
+    total_bill_amount DECIMAL(10, 2) NOT NULL,
+    customer_id INT NOT NULL,
+    customer_name VARCHAR(100) NOT NULL,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+)AUTO_INCREMENT=1;
+
+select * from audit_table;
+
+INSERT INTO audit_table (total_bill_amount, customer_id, customer_name)
+VALUES (1250.75, 101, 'Rahul Sen');
+
+truncate table audit_table;
+
+select customer_id,sum(total_bill_amount)
+from audit_table
+where timestamp between '2025-05-11 17:51:52' and '2025-05-11 18:45:46'
+group by customer_id;
+
