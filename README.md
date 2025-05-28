@@ -1,1 +1,1 @@
-# Marketing-Management
+# Marketing-Management with python and mysql
